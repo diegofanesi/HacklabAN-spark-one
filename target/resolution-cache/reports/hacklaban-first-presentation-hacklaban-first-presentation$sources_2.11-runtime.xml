@@ -7,7 +7,7 @@
 		revision="1.0"
 		conf="runtime"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20170305232851"/>
+		date="20170307024339"/>
 	<dependencies>
 		<module organisation="org.apache.spark" name="spark-streaming_2.11">
 			<revision name="2.1.0" status="release" pubdate="20161216080548" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://spark.apache.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="102">
@@ -191,7 +191,7 @@
 		</module>
 		<module organisation="org.apache.curator" name="curator-recipes">
 			<revision name="2.4.0" status="release" pubdate="20140206000911" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="91">
-				<license name="The Apache Software License, Version 2.0" url="file:///home/diego/lezioni/LICENSE"/>
+				<license name="The Apache Software License, Version 2.0" url="file:///home/diego/HacklabAN-spark-one/LICENSE"/>
 				<metadata-artifact status="no" details="" size="7627" time="0" location="/home/diego/.ivy2/cache/org.apache.curator/curator-recipes/ivy-2.4.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/curator/curator-recipes/2.4.0/curator-recipes-2.4.0.pom"/>
 				<caller organisation="hacklaban-first-presentation" name="hacklaban-first-presentation$sources_2.11" conf="compile, runtime" rev="2.4.0" rev-constraint-default="2.4.0" rev-constraint-dynamic="2.4.0" callerrev="1.0"/>
 				<artifacts>
@@ -203,7 +203,7 @@
 		</module>
 		<module organisation="org.apache.curator" name="curator-framework">
 			<revision name="2.4.0" status="release" pubdate="20140206000848" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="89">
-				<license name="The Apache Software License, Version 2.0" url="file:///home/diego/lezioni/LICENSE"/>
+				<license name="The Apache Software License, Version 2.0" url="file:///home/diego/HacklabAN-spark-one/LICENSE"/>
 				<metadata-artifact status="no" details="" size="7475" time="0" location="/home/diego/.ivy2/cache/org.apache.curator/curator-framework/ivy-2.4.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/curator/curator-framework/2.4.0/curator-framework-2.4.0.pom"/>
 				<caller organisation="hacklaban-first-presentation" name="hacklaban-first-presentation$sources_2.11" conf="compile, runtime" rev="2.4.0" rev-constraint-default="2.4.0" rev-constraint-dynamic="2.4.0" callerrev="1.0"/>
 				<artifacts>
@@ -635,7 +635,7 @@
 		</module>
 		<module organisation="org.apache.curator" name="curator-client">
 			<revision name="2.4.0" status="release" pubdate="20140206000826" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="21">
-				<license name="The Apache Software License, Version 2.0" url="file:///home/diego/lezioni/LICENSE"/>
+				<license name="The Apache Software License, Version 2.0" url="file:///home/diego/HacklabAN-spark-one/LICENSE"/>
 				<metadata-artifact status="no" details="" size="7522" time="0" location="/home/diego/.ivy2/cache/org.apache.curator/curator-client/ivy-2.4.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/curator/curator-client/2.4.0/curator-client-2.4.0.pom"/>
 				<caller organisation="hacklaban-first-presentation" name="hacklaban-first-presentation$sources_2.11" conf="compile, runtime" rev="2.4.0" rev-constraint-default="2.4.0" rev-constraint-dynamic="2.4.0" callerrev="1.0"/>
 				<artifacts>

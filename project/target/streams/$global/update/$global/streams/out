@@ -1,20 +1,20 @@
-[info] Updating {file:/home/diego/lezioni/project/}lezioni-build...
-[debug] :: resolving dependencies :: default#lezioni-build;0.1-SNAPSHOT
+[info] Updating {file:/home/diego/HacklabAN-spark-one/project/}hacklaban-spark-one-build...
+[debug] :: resolving dependencies :: default#hacklaban-spark-one-build;0.1-SNAPSHOT
 [debug] 	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool]
 [debug] 	validate = true
 [debug] 	refresh = false
 [debug] resolving dependencies for configuration 'compile'
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [compile]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [compile]
 [debug] resolving dependencies for configuration 'runtime'
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [runtime]
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [compile]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [runtime]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [compile]
 [debug] resolving dependencies for configuration 'test'
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [test]
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [runtime]
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [compile]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [test]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [runtime]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [compile]
 [debug] resolving dependencies for configuration 'provided'
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [provided]
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->default(compile)]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [provided]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->default(compile)]
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
 [debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
 [info] Resolving org.scala-lang#scala-library;2.10.6 ...
@@ -22,10 +22,10 @@
 [debug] sbt-chain: module revision found in cache: org.scala-lang#scala-library;2.10.6
 [debug] 	found org.scala-lang#scala-library;2.10.6 in sbt-chain
 [debug] 	[2.10.6] org.scala-lang#scala-library;2.10.6
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->runtime]
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->compile]
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->master]
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-sbt#sbt;0.13.13 [provided->default(compile)]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->runtime]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->compile]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->master]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-sbt#sbt;0.13.13 [provided->default(compile)]
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
 [debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
 [info] Resolving org.scala-sbt#sbt;0.13.13 ...
@@ -1835,13 +1835,13 @@
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {provided=[default(compile)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {provided=[default(compile)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.6 {compile=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.6 {compile=[default(compile)]}
 [debug] resolving dependencies for configuration 'optional'
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [optional]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [optional]
 [debug] resolving dependencies for configuration 'compile-internal'
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [compile-internal]
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [compile]
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [optional]
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [provided]
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->default(compile)]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [compile-internal]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [compile]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [optional]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [provided]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->default(compile)]
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
 [debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
@@ -1850,10 +1850,10 @@
 [debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
 [debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->runtime]
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->compile]
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->master]
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-sbt#sbt;0.13.13 [provided->default(compile)]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->runtime]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->compile]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->master]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-sbt#sbt;0.13.13 [provided->default(compile)]
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
 [debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
@@ -3746,18 +3746,18 @@
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {provided=[default(compile)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {provided=[default(compile)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.6 {compile=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.6 {compile=[default(compile)]}
 [debug] resolving dependencies for configuration 'runtime-internal'
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [runtime-internal]
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [runtime]
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [compile]
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [optional]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [runtime-internal]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [runtime]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [compile]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [optional]
 [debug] resolving dependencies for configuration 'test-internal'
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [test-internal]
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [test]
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [runtime]
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [compile]
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [optional]
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [provided]
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->default(compile)]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [test-internal]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [test]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [runtime]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [compile]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [optional]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [provided]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->default(compile)]
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
 [debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
@@ -3770,10 +3770,10 @@
 [debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
 [debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->runtime]
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->compile]
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->master]
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-sbt#sbt;0.13.13 [provided->default(compile)]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->runtime]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->compile]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->master]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-sbt#sbt;0.13.13 [provided->default(compile)]
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
 [debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
@@ -5870,20 +5870,20 @@
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {provided=[default(compile)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {provided=[default(compile)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.6 {compile=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.6 {compile=[default(compile)]}
 [debug] resolving dependencies for configuration 'plugin'
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [plugin]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [plugin]
 [debug] resolving dependencies for configuration 'sources'
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [sources]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [sources]
 [debug] resolving dependencies for configuration 'docs'
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [docs]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [docs]
 [debug] resolving dependencies for configuration 'pom'
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [pom]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [pom]
 [debug] resolving dependencies for configuration 'scala-tool'
-[debug] == resolving dependencies for default#lezioni-build;0.1-SNAPSHOT [scala-tool]
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-compiler;2.10.6 [scala-tool->default]
+[debug] == resolving dependencies for default#hacklaban-spark-one-build;0.1-SNAPSHOT [scala-tool]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-compiler;2.10.6 [scala-tool->default]
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
 [debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-compiler;2.10.6 [scala-tool->runtime]
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-compiler;2.10.6 [scala-tool->compile]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-compiler;2.10.6 [scala-tool->runtime]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-compiler;2.10.6 [scala-tool->compile]
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]} => dependency: org.scala-lang#scala-library;2.10.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-reflect;2.10.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]} => dependency: org.scala-lang#scala-reflect;2.10.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#jline;2.10.6 {optional=[compile(*), master(*)]} => dependency: org.scala-lang#jline;2.10.6 {optional=[compile(*), master(*)]}
@@ -5949,14 +5949,14 @@
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]} => dependency: org.scala-lang#scala-library;2.10.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
 [debug] == resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [runtime->runtime(*)]
 [debug] == resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [runtime->compile]
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-compiler;2.10.6 [scala-tool->master]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-compiler;2.10.6 [scala-tool->master]
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]} => dependency: org.scala-lang#scala-library;2.10.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-reflect;2.10.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]} => dependency: org.scala-lang#scala-reflect;2.10.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#jline;2.10.6 {optional=[compile(*), master(*)]} => dependency: org.scala-lang#jline;2.10.6 {optional=[compile(*), master(*)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]} => dependency: org.scala-lang#scala-library;2.10.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-reflect;2.10.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]} => dependency: org.scala-lang#scala-reflect;2.10.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#jline;2.10.6 {optional=[compile(*), master(*)]} => dependency: org.scala-lang#jline;2.10.6 {optional=[compile(*), master(*)]}
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-compiler;2.10.6 [scala-tool->optional(default)]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-compiler;2.10.6 [scala-tool->optional(default)]
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]} => dependency: org.scala-lang#scala-library;2.10.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-reflect;2.10.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]} => dependency: org.scala-lang#scala-reflect;2.10.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#jline;2.10.6 {optional=[compile(*), master(*)]} => dependency: org.scala-lang#jline;2.10.6 {optional=[compile(*), master(*)]}
@@ -6012,11 +6012,11 @@
 [debug] sbt-chain: module revision found in cache: org.fusesource.jansi#jansi;1.4
 [debug] 	found org.fusesource.jansi#jansi;1.4 in sbt-chain
 [debug] == resolving dependencies org.scala-lang#jline;2.10.6->org.fusesource.jansi#jansi;1.4 [compile->compile(*)]
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [scala-tool->default]
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [scala-tool->runtime]
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [scala-tool->compile]
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [scala-tool->master]
-[debug] == resolving dependencies default#lezioni-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [scala-tool->optional(default)]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [scala-tool->default]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [scala-tool->runtime]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [scala-tool->compile]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [scala-tool->master]
+[debug] == resolving dependencies default#hacklaban-spark-one-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [scala-tool->optional(default)]
 [debug] ignoring unhandled DependencyDescriptorMediator: class sbt.IvyScala$OverrideScalaMediator
 [debug] 	resolved ivy file produced in cache
 [debug] :: downloading artifacts ::
@@ -6074,19 +6074,19 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#jline;2.10.6!jline.jar
 [debug] 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-[debug] :: resolution report :: resolve 1479ms :: artifacts dl 35ms
-[debug] 	report for default#lezioni-build;0.1-SNAPSHOT compile produced in /home/diego/lezioni/project/target/resolution-cache/reports/default-lezioni-build-compile.xml
-[debug] 	report for default#lezioni-build;0.1-SNAPSHOT runtime produced in /home/diego/lezioni/project/target/resolution-cache/reports/default-lezioni-build-runtime.xml
-[debug] 	report for default#lezioni-build;0.1-SNAPSHOT test produced in /home/diego/lezioni/project/target/resolution-cache/reports/default-lezioni-build-test.xml
-[debug] 	report for default#lezioni-build;0.1-SNAPSHOT provided produced in /home/diego/lezioni/project/target/resolution-cache/reports/default-lezioni-build-provided.xml
-[debug] 	report for default#lezioni-build;0.1-SNAPSHOT optional produced in /home/diego/lezioni/project/target/resolution-cache/reports/default-lezioni-build-optional.xml
-[debug] 	report for default#lezioni-build;0.1-SNAPSHOT compile-internal produced in /home/diego/lezioni/project/target/resolution-cache/reports/default-lezioni-build-compile-internal.xml
-[debug] 	report for default#lezioni-build;0.1-SNAPSHOT runtime-internal produced in /home/diego/lezioni/project/target/resolution-cache/reports/default-lezioni-build-runtime-internal.xml
-[debug] 	report for default#lezioni-build;0.1-SNAPSHOT test-internal produced in /home/diego/lezioni/project/target/resolution-cache/reports/default-lezioni-build-test-internal.xml
-[debug] 	report for default#lezioni-build;0.1-SNAPSHOT plugin produced in /home/diego/lezioni/project/target/resolution-cache/reports/default-lezioni-build-plugin.xml
-[debug] 	report for default#lezioni-build;0.1-SNAPSHOT sources produced in /home/diego/lezioni/project/target/resolution-cache/reports/default-lezioni-build-sources.xml
-[debug] 	report for default#lezioni-build;0.1-SNAPSHOT docs produced in /home/diego/lezioni/project/target/resolution-cache/reports/default-lezioni-build-docs.xml
-[debug] 	report for default#lezioni-build;0.1-SNAPSHOT pom produced in /home/diego/lezioni/project/target/resolution-cache/reports/default-lezioni-build-pom.xml
-[debug] 	report for default#lezioni-build;0.1-SNAPSHOT scala-tool produced in /home/diego/lezioni/project/target/resolution-cache/reports/default-lezioni-build-scala-tool.xml
-[debug] 	resolve done (1479ms resolve - 35ms download)
+[debug] :: resolution report :: resolve 1320ms :: artifacts dl 31ms
+[debug] 	report for default#hacklaban-spark-one-build;0.1-SNAPSHOT compile produced in /home/diego/HacklabAN-spark-one/project/target/resolution-cache/reports/default-hacklaban-spark-one-build-compile.xml
+[debug] 	report for default#hacklaban-spark-one-build;0.1-SNAPSHOT runtime produced in /home/diego/HacklabAN-spark-one/project/target/resolution-cache/reports/default-hacklaban-spark-one-build-runtime.xml
+[debug] 	report for default#hacklaban-spark-one-build;0.1-SNAPSHOT test produced in /home/diego/HacklabAN-spark-one/project/target/resolution-cache/reports/default-hacklaban-spark-one-build-test.xml
+[debug] 	report for default#hacklaban-spark-one-build;0.1-SNAPSHOT provided produced in /home/diego/HacklabAN-spark-one/project/target/resolution-cache/reports/default-hacklaban-spark-one-build-provided.xml
+[debug] 	report for default#hacklaban-spark-one-build;0.1-SNAPSHOT optional produced in /home/diego/HacklabAN-spark-one/project/target/resolution-cache/reports/default-hacklaban-spark-one-build-optional.xml
+[debug] 	report for default#hacklaban-spark-one-build;0.1-SNAPSHOT compile-internal produced in /home/diego/HacklabAN-spark-one/project/target/resolution-cache/reports/default-hacklaban-spark-one-build-compile-internal.xml
+[debug] 	report for default#hacklaban-spark-one-build;0.1-SNAPSHOT runtime-internal produced in /home/diego/HacklabAN-spark-one/project/target/resolution-cache/reports/default-hacklaban-spark-one-build-runtime-internal.xml
+[debug] 	report for default#hacklaban-spark-one-build;0.1-SNAPSHOT test-internal produced in /home/diego/HacklabAN-spark-one/project/target/resolution-cache/reports/default-hacklaban-spark-one-build-test-internal.xml
+[debug] 	report for default#hacklaban-spark-one-build;0.1-SNAPSHOT plugin produced in /home/diego/HacklabAN-spark-one/project/target/resolution-cache/reports/default-hacklaban-spark-one-build-plugin.xml
+[debug] 	report for default#hacklaban-spark-one-build;0.1-SNAPSHOT sources produced in /home/diego/HacklabAN-spark-one/project/target/resolution-cache/reports/default-hacklaban-spark-one-build-sources.xml
+[debug] 	report for default#hacklaban-spark-one-build;0.1-SNAPSHOT docs produced in /home/diego/HacklabAN-spark-one/project/target/resolution-cache/reports/default-hacklaban-spark-one-build-docs.xml
+[debug] 	report for default#hacklaban-spark-one-build;0.1-SNAPSHOT pom produced in /home/diego/HacklabAN-spark-one/project/target/resolution-cache/reports/default-hacklaban-spark-one-build-pom.xml
+[debug] 	report for default#hacklaban-spark-one-build;0.1-SNAPSHOT scala-tool produced in /home/diego/HacklabAN-spark-one/project/target/resolution-cache/reports/default-hacklaban-spark-one-build-scala-tool.xml
+[debug] 	resolve done (1320ms resolve - 31ms download)
 [info] Done updating.

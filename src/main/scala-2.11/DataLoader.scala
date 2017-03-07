@@ -1,5 +1,5 @@
 import org.apache.spark.sql._
-import org.apache.spark.sql.functions.udf
+import org.apache.spark.sql.functions._
 import org.apache.spark.storage.StorageLevel
 import org.joda.time.{DateTime, Period}
 
@@ -28,7 +28,7 @@ object DataLoader {
 
     //spark.udf.register("avgPayPerShopPerDoW", avgPayPerShopPerDoW(_: String, _: Int, _: Int))
 
-    userPay = (userPay.select(
+    userPay = userPay.select(
       functions.col("shop_id"),
       functions.col("user_id"),
       functions.month(functions.col("timestamp")).name("month"),
@@ -43,9 +43,9 @@ object DataLoader {
       functions.col("day"),
       functions.col("DoW"),
       functions.col("date")
-    ).count().withColumnRenamed("count", "payments").persist(StorageLevel.MEMORY_AND_DISK))
+    ).count().withColumnRenamed("count", "payments")
 
-    userView = (userView.select(
+    userView = userView.select(
       functions.col("shop_id"),
       functions.col("user_id"),
       functions.month(functions.col("timestamp")).name("month"),
@@ -60,10 +60,17 @@ object DataLoader {
       functions.col("day"),
       functions.col("DoW"),
       functions.col("date")
-    ).count().withColumnRenamed("count", "views").persist(StorageLevel.MEMORY_AND_DISK))
+    ).count().withColumnRenamed("count", "views")
+
+    var validShops = userPay.groupBy("shop_id").agg(min(col("date")),max(col("date"))).filter("datediff(max(date),min(date)) > 120").select("shop_id").cache()
+
+    userPay = validShops.join(userPay,"shop_id").persist(StorageLevel.MEMORY_AND_DISK)
+    userView = validShops.join(userView,"shop_id").persist(StorageLevel.MEMORY_AND_DISK)
+    shopInfo = validShops.join(shopInfo,"shop_id").persist(StorageLevel.MEMORY_AND_DISK)
 
 
   }
+  
 
   val avgPerDoW = functions.udf(
     (date: String, shop_id: Int, DoW: Int, nameCol: String, dataframe:DataFrame) => {
