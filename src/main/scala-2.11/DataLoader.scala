@@ -3,7 +3,11 @@ import java.util.stream.Collectors
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql._
 import org.apache.spark.storage.StorageLevel
+import org.apache.spark.sql.SQLImplicits
+import org.apache.spark.sql.Encoders._
 import org.joda.time.{DateTime, Period}
+import org.apache.log4j.Logger
+import org.apache.log4j.Level
 
 /**
   * Created by diego on 3/5/17.
@@ -14,10 +18,14 @@ object DataLoader {
   var shopInfo: DataFrame = null
   var userView: DataFrame = null
 
-  var spark: SparkSession = SparkSession
-    .builder().master("local")
+  Logger.getLogger("org").setLevel(Level.OFF)
+
+  val spark: SparkSession = SparkSession
+    .builder().master("local[8]")
     .appName("Spark SQL basic example")
     .getOrCreate()
+
+  import spark.implicits._
 
   def loadFile(filename: String): DataFrame = return spark.read.format("com.databricks.spark.csv").option("inferSchema", "true").option("header", "true").load(datasetPath.+(filename))
 
@@ -28,7 +36,7 @@ object DataLoader {
     shopInfo = (loadFile("shop_info.csv"))
     userView = (loadFile("user_view.csv"))
 
-    //spark.udf.register("avgPayPerShopPerDoW", avgPayPerShopPerDoW(_: String, _: Int, _: Int))
+
 
     userPay = userPay.select(
       col("shop_id"),
@@ -65,14 +73,14 @@ object DataLoader {
     ).count().withColumnRenamed("count", "views")
 
     var validShops = userPay.groupBy("shop_id").agg(min(col("date")),max(col("date"))).withColumnRenamed("max(date)","max").withColumnRenamed("min(date)","min").filter("datediff(max,min) > 120").select("shop_id").cache()
-    var validShopIds = validShops.select("shop_id").map(r=>r.getAs[Int]("shop_id")).collectAsList().toArray
+    var validShopIds = validShops.select("shop_id").map { case Row(shop_id: Int) => shop_id }.collectAsList().toArray
 
     userPay = userPay.filter(col("shop_id").isin(validShopIds:_*)).persist(StorageLevel.MEMORY_AND_DISK)
     userView = userView.filter(col("shop_id").isin(validShopIds:_*)).persist(StorageLevel.MEMORY_AND_DISK)
     shopInfo = shopInfo.filter(col("shop_id").isin(validShopIds:_*)).persist(StorageLevel.MEMORY_AND_DISK)
 
-    userPay = userPay.join(validShops,col("shop_id"),"inner").filter(datediff(col("date"),col("min")) > 90).select(
-      col("shop_id"),
+    userPay = userPay.join(validShops, userPay.col("shop_id"), "inner").filter(datediff(col("date"), col("min")) > 90).select(
+      userPay.col("shop_id"),
       col("year"),
       col("month"),
       col("day"),
@@ -92,10 +100,10 @@ object DataLoader {
 
 
   def avgPerDoW(nameCol: String, dataframe:DataFrame) = udf(
-    (date, shop_id, DoW) => {
+    (date: String, shop_id: Int, DoW: Int) => {
       var tmp = dataframe.filter(Predef.augmentString("shop_id = %i and date < unix_timestamp('%s')  and date > date_sub(unix_timestamp('%s'), 180) and DoW = %i").format(shop_id, date, date, DoW)).cache()
-      val max: DateTime = DateTime.parse(tmp.agg(Tuple2.apply("date", "max")).map((x: Row) => x.getString(0)).first().toString())
-      val min: DateTime = DateTime.parse(tmp.agg(Tuple2.apply("date", "min")).map((x: Row) => x.getString(0)).first().toString())
+      val max: DateTime = DateTime.parse(tmp.agg(("date", "max")).map { case Row(dt: String) => dt }.first().toString())
+      val min: DateTime = DateTime.parse(tmp.agg(("date", "min")).map { case Row(dt: String) => dt }.first().toString())
       var numOfDoW: Int = if ( min.dayOfWeek() != DoW && max.dayOfWeek() != DoW ) 0 else 1
       numOfDoW = numOfDoW + ((new Period(min, max)).getDays / 7)
       tmp.agg((nameCol, "sum")).first().getInt(0) / numOfDoW.toDouble
@@ -111,5 +119,10 @@ object DataLoader {
 
   def saveDataset(df: DataFrame, filename: String): Unit = {
     df.coalesce(1).write.format("csv").option("header", "true").save(datasetPath.+(filename))
+  }
+
+  def main(args: Array[String]): Unit = {
+    loadData()
+    userPay.show(10)
   }
 }
