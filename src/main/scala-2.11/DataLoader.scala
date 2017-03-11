@@ -13,7 +13,7 @@ import org.apache.log4j.Level
   * Created by diego on 3/5/17.
   */
 object DataLoader {
-  val datasetPath: String = "/home/diego/IdeaProjects/untitled1/src/"
+  val datasetPath: String = "/home/diego/dataset/"
   var userPay: DataFrame = null
   var shopInfo: DataFrame = null
   var userView: DataFrame = null
@@ -21,8 +21,10 @@ object DataLoader {
   Logger.getLogger("org").setLevel(Level.OFF)
 
   val spark: SparkSession = SparkSession
-    .builder().master("local[8]")
+    .builder().master("spark://192.168.1.145:7077")
     .appName("Spark SQL basic example")
+    .config("spark.executor.memory", "5g")
+    //.config("spark.executor.cores","16")
     .getOrCreate()
 
   import spark.implicits._
@@ -53,7 +55,7 @@ object DataLoader {
       col("day"),
       col("DoW"),
       col("date")
-    ).count().withColumnRenamed("count", "payments")
+    ).count().withColumnRenamed("count", "payments").coalesce(16).persist(StorageLevel.MEMORY_AND_DISK)
 
     userView = userView.select(
       col("shop_id"),
@@ -70,16 +72,20 @@ object DataLoader {
       col("day"),
       col("DoW"),
       col("date")
-    ).count().withColumnRenamed("count", "views")
+    ).count().withColumnRenamed("count", "views").coalesce(16).persist(StorageLevel.MEMORY_AND_DISK)
 
-    var validShops = userPay.groupBy("shop_id").agg(min(col("date")),max(col("date"))).withColumnRenamed("max(date)","max").withColumnRenamed("min(date)","min").filter("datediff(max,min) > 120").select("shop_id").cache()
-    var validShopIds = validShops.select("shop_id").map { case Row(shop_id: Int) => shop_id }.collectAsList().toArray
+    var validShops = userPay.groupBy("shop_id").agg(min(col("date")), max(col("date"))).withColumnRenamed("max(date)", "max").withColumnRenamed("min(date)", "min").filter("datediff(max,min) > 120").persist()
+    //var validShopIds = validShops.select("shop_id")
+    //validShops.show(10)
 
-    userPay = userPay.filter(col("shop_id").isin(validShopIds:_*)).persist(StorageLevel.MEMORY_AND_DISK)
-    userView = userView.filter(col("shop_id").isin(validShopIds:_*)).persist(StorageLevel.MEMORY_AND_DISK)
-    shopInfo = shopInfo.filter(col("shop_id").isin(validShopIds:_*)).persist(StorageLevel.MEMORY_AND_DISK)
+    //userPay = userPay.filter(col("shop_id").isin(validShops.col("shop_id"))).persist(StorageLevel.MEMORY_AND_DISK)
+    //userView = userView.filter(col("shop_id").isin(validShops.col("shop_id"))).persist(StorageLevel.MEMORY_AND_DISK)
+    //shopInfo = shopInfo.filter(col("shop_id").isin(validShops.col("shop_id"))).persist(StorageLevel.MEMORY_AND_DISK)
 
-    userPay = userPay.join(validShops, userPay.col("shop_id"), "inner").filter(datediff(col("date"), col("min")) > 90).select(
+    userPay.show(10)
+
+
+    userPay = userPay.join(validShops, userPay.col("shop_id") === validShops.col("shop_id"), "right").filter("datediff(date, min) > 90").select(
       userPay.col("shop_id"),
       col("year"),
       col("month"),
@@ -87,14 +93,14 @@ object DataLoader {
       col("DoW"),
       col("date"),
       col("payments"),
-      avgPerDoW("payments", userPay)(col("date"), col("shop_id"), col("DoW")),
-      avgPerDoW("views", userView)(col("date"), col("shop_id"), col("DoW")),
-      dailyAvgInAMonth("payments", userPay, 1)(col("date"),col("shop_id")),
-      dailyAvgInAMonth("payments", userPay, 2)(col("date"),col("shop_id")),
-      dailyAvgInAMonth("payments", userPay, 3)(col("date"),col("shop_id")),
-      dailyAvgInAMonth("views", userView, 1)(col("date"),col("shop_id")),
-      dailyAvgInAMonth("views", userView, 2)(col("date"),col("shop_id")),
-      dailyAvgInAMonth("views", userView, 3)(col("date"),col("shop_id"))
+      avgPerDoW("payments", userPay)(col("date"), userPay.col("shop_id"), col("DoW")),
+      avgPerDoW("views", userView)(col("date"), userPay.col("shop_id"), col("DoW")),
+      dailyAvgInAMonth("payments", userPay, 1)(col("date"), userPay.col("shop_id")),
+      dailyAvgInAMonth("payments", userPay, 2)(col("date"), userPay.col("shop_id")),
+      dailyAvgInAMonth("payments", userPay, 3)(col("date"), userPay.col("shop_id")),
+      dailyAvgInAMonth("views", userView, 1)(col("date"), userPay.col("shop_id")),
+      dailyAvgInAMonth("views", userView, 2)(col("date"), userPay.col("shop_id")),
+      dailyAvgInAMonth("views", userView, 3)(col("date"), userPay.col("shop_id"))
     )
   }
 
