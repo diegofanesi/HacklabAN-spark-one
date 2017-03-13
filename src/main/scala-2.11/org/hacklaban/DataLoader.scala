@@ -27,20 +27,14 @@ object DataLoader {
 
   import spark.implicits._
 
-  def loadFile(filename: String): DataFrame = return spark.read.format("com.databricks.spark.csv").option("inferSchema", "true").option("header", "true").load(datasetPath.+(filename))
+  def loadFile(filename: String): DataFrame = return spark.read.format("parquet").option("compression", "gzip").load(datasetPath.+(filename))
 
 
   def loadData(): Unit = {
     //Main Datasets
-    userPay = (loadFile("user_pay.csv"))
-    shopInfo = (loadFile("shop_info.csv"))
-    userView = (loadFile("user_view.csv"))
-
-    this.saveDataset(userPay, "userPay.parquet", "parquet")
-    this.saveDataset(shopInfo, "shopInfo.parquet", "parquet")
-    this.saveDataset(userView, "userView.parquet", "parquet")
-
-    return
+    userPay = (loadFile("user_pay.gz.parquet"))
+    shopInfo = (loadFile("shop_info.gz.parquet"))
+    userView = (loadFile("user_view.gz.parquet"))
 
     userPay = userPay.select(
       col("shop_id"),
@@ -76,10 +70,10 @@ object DataLoader {
       col("date")
     ).count().withColumnRenamed("count", "nevents").coalesce(16).persist(StorageLevel.MEMORY_ONLY)
 
+  }
+
+  def theWrongWay(): Unit = {
     var validShops = userPay.groupBy("shop_id").agg(min(col("date")), max(col("date"))).withColumnRenamed("max(date)", "max").withColumnRenamed("min(date)", "min").filter("datediff(max,min) > 120").persist(StorageLevel.MEMORY_ONLY)
-
-    userPay.show(10)
-
 
     userPay = userPay.join(validShops, userPay.col("shop_id") === validShops.col("shop_id"), "right").filter("datediff(date, min) > 90").select(
       userPay.col("shop_id"),
@@ -121,7 +115,33 @@ object DataLoader {
     )
   }
 
+  def theRightWay(): Unit = {
+    var validShops = userPay.groupBy("shop_id").agg(min(col("date")), max(col("date"))).withColumnRenamed("max(date)", "max").withColumnRenamed("min(date)", "min").filter("datediff(max,min) > 120").persist(StorageLevel.MEMORY_ONLY)
 
+    userPay = userPay.join(validShops, userPay.col("shop_id") === validShops.col("shop_id"), "right").filter("datediff(date, min) > 90").select(
+      userPay.col("shop_id"),
+      col("year"),
+      col("month"),
+      col("day"),
+      col("DoW"),
+      col("date"),
+      col("nevents")
+    ).as("uP0")
+      .join(userPay.as("uP1"), $"uP0.shop_id" === $"uP1.shop_id" && $"uP1.date" === date_sub($"uP0.date", 1))
+      .join(userPay.as("uP2"), $"uP0.shop_id" === $"uP2.shop_id" && $"uP2.date" === date_sub($"uP0.date", 1))
+      .join(userPay.as("uP3"), $"uP0.shop_id" === $"uP3.shop_id" && $"uP3.date" === date_sub($"uP0.date", 1))
+      .join(userPay.as("uP4"), $"uP0.shop_id" === $"uP4.shop_id" && $"uP4.date" === date_sub($"uP0.date", 1))
+      .join(userPay.as("uP5"), $"uP0.shop_id" === $"uP5.shop_id" && $"uP5.date" === date_sub($"uP0.date", 1))
+      .join(userPay.as("uP6"), $"uP0.shop_id" === $"uP6.shop_id" && $"uP6.date" === date_sub($"uP0.date", 1))
+      .join(userPay.as("uP7"), $"uP0.shop_id" === $"uP7.shop_id" && $"uP7.date" === date_sub($"uP0.date", 1))
+      .join(userPay.as("uP8"), $"uP0.shop_id" === $"uP8.shop_id" && $"uP8.date" === date_sub($"uP0.date", 1))
+      .join(userPay.as("uP9"), $"uP0.shop_id" === $"uP9.shop_id" && $"uP9.date" === date_sub($"uP0.date", 1))
+      .join(userPay.as("uP10"), $"uP0.shop_id" === $"uP10.shop_id" && $"uP10.date" === date_sub($"uP0.date", 1))
+      .join(userPay.as("uP11"), $"uP0.shop_id" === $"uP11.shop_id" && $"uP11.date" === date_sub($"uP0.date", 1))
+      .join(userPay.as("uP12"), $"uP0.shop_id" === $"uP12.shop_id" && $"uP12.date" === date_sub($"uP0.date", 1))
+      .join(userPay.as("uP13"), $"uP0.shop_id" === $"uP13.shop_id" && $"uP13.date" === date_sub($"uP0.date", 1))
+      .join(userPay.as("uP14"), $"uP0.shop_id" === $"uP14.shop_id" && $"uP14.date" === date_sub($"uP0.date", 1))
+  }
   def getDataFromHistory(dataframe: DataFrame) = udf(
     (date: Date, shop_id: Int) => if (dataframe.filter($"shop_id" === shop_id && $"date" == date).count() == 0) 0 else dataframe.filter($"shop_id" === shop_id && $"date" == date).select($"nevents").first().getInt(0)
   )
