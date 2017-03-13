@@ -3,7 +3,7 @@
  * $Date: 2012-08-04 08:00:00 (Thu, 23 Aug 2012) $
  * $Rev: 303006 $
  *
- * Copyright (c) 2012
+ * Copyright (c) 2012 
  *   Fabrizio Balliano (http://www.fabrizioballiano.net)
  *   Kevin Dalman (http://allpro.net)
  *

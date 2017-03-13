@@ -16,10 +16,10 @@ object DataLoader {
   var shopInfo: DataFrame = null
   var userView: DataFrame = null
 
-  Logger.getLogger("org").setLevel(Level.OFF)
+  //Logger.getLogger("org").setLevel(Level.OFF)
 
   val spark: SparkSession = SparkSession
-    .builder().master("local[8]") //.master("spark://192.168.1.145:7077")
+    .builder() //.master("local[8]") //.master("spark://192.168.1.145:7077")
     .appName("Spark SQL basic example")
     .config("spark.executor.memory", "5g")
     //.config("spark.executor.cores","16")

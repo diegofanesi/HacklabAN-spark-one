@@ -283,6 +283,7 @@ dl.attributes > dd {
     color: white;
 }
 
+
 /* Member cells */
 
 div.members > ol {
@@ -866,7 +867,6 @@ div.fullcomment dl.paramcmts > dd {
     background-position: 0px -1px;
     text-shadow: #ffffff 0 1px 0;
 }
-
 /*
 #mbrsel .hideall {
   color: #4C4C4C;

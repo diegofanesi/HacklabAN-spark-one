@@ -1,6 +1,6 @@
 /**
  * JavaScript functions enhancing the SVG diagrams.
- *
+ * 
  * @author Damien Obrist
  */
 
