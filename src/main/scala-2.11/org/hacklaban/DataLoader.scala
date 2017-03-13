@@ -19,7 +19,7 @@ object DataLoader {
   //Logger.getLogger("org").setLevel(Level.OFF)
 
   val spark: SparkSession = SparkSession
-    .builder() //.master("local[8]") //.master("spark://192.168.1.145:7077")
+    .builder().master("local[8]") //.master("spark://192.168.1.145:7077")
     .appName("Spark SQL basic example")
     .config("spark.executor.memory", "5g")
     //.config("spark.executor.cores","16")
@@ -36,6 +36,11 @@ object DataLoader {
     shopInfo = (loadFile("shop_info.csv"))
     userView = (loadFile("user_view.csv"))
 
+    this.saveDataset(userPay, "userPay.parquet", "parquet")
+    this.saveDataset(shopInfo, "shopInfo.parquet", "parquet")
+    this.saveDataset(userView, "userView.parquet", "parquet")
+
+    return
 
     userPay = userPay.select(
       col("shop_id"),
@@ -121,8 +126,11 @@ object DataLoader {
     (date: Date, shop_id: Int) => if (dataframe.filter($"shop_id" === shop_id && $"date" == date).count() == 0) 0 else dataframe.filter($"shop_id" === shop_id && $"date" == date).select($"nevents").first().getInt(0)
   )
 
-  def saveDataset(df: DataFrame, filename: String): Unit = {
-    df.coalesce(1).write.format("csv").option("header", "true").save(datasetPath.+(filename))
+  def saveDataset(df: DataFrame, filename: String, format: String): Unit = {
+    if (format == "csv")
+      df.coalesce(1).write.format("csv").option("header", "true").save(datasetPath.+(filename))
+    if (format == "parquet")
+      df.coalesce(1).write.format("parquet").save(datasetPath.+(filename))
   }
 
   def main(args: Array[String]): Unit = {
